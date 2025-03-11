@@ -15,4 +15,9 @@ export class SubjectComponent {
     console.log(this.premium.exclusive(),"asdas");
     
   }
+
+  ngOnDestroy(){
+    // this.premium.exclusive.next(false)
+    this.premium.exclusive.set(false)
+  }
 }
