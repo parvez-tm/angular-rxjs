@@ -5,6 +5,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet, provideRouter } from '@angu
 import { ObservableComponent } from './observable/observable.component';
 import { PremiumService } from './services/premium.service';
 import { CommonModule } from '@angular/common';
+import { PromiseComponent } from './promise/promise.component';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,9 @@ import { CommonModule } from '@angular/common';
         <li class="nav-item">
           <a class="nav-link" routerLink='/observable' routerLinkActive='active'>Observable</a>
         </li>
+        <li class="nav-item">
+        <a class="nav-link" routerLink='/promise' routerLinkActive='active'>Promise</a>
+      </li>
 
       </ul>
     </div>
@@ -62,6 +66,10 @@ bootstrapApplication(App,{
       {
         path: 'observable',
         component: ObservableComponent
+      },
+      {
+        path: 'promise',
+        component: PromiseComponent
       },
     ])
   ]
