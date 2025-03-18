@@ -1,1 +1,21 @@
-<p>subject works!</p>
+<ul>
+    <li>
+        The constructor sets up the subscription, but the observable itself will continue emitting values over time.
+    </li>
+    <li>
+        Observables are asynchronous and can emit multiple values (or even no value), so the this.exclusive will update
+        whenever a new value is emitted from the exclusive observable.
+    </li>
+    <li>
+        The subscription is active as long as the component exists, and Angular will automatically clean it up when the
+        component is destroyed, assuming you properly manage unsubscriptions (more on that below).
+    </li>
+    <li>
+        Observables are not one-time values; they can emit multiple values over time.
+    </li>
+    <li>
+        So, while the constructor runs only once, the subscription continues to listen for updates whenever the
+        exclusive observable emits a new value.
+    </li>
+
+</ul>
