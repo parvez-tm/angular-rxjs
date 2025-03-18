@@ -6,6 +6,7 @@ import { ObservableComponent } from './observable/observable.component';
 import { PremiumService } from './services/premium.service';
 import { CommonModule } from '@angular/common';
 import { PromiseComponent } from './promise/promise.component';
+import { FromEventComponent } from './observable/from-event/from-event.component';
 
 @Component({
   selector: 'app-root',
@@ -65,7 +66,13 @@ bootstrapApplication(App,{
       },
       {
         path: 'observable',
-        component: ObservableComponent
+        component: ObservableComponent,
+        children: [
+          {
+            path: 'fromEvent',
+            component: FromEventComponent
+          }
+        ]
       },
       {
         path: 'promise',

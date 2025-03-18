@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
-  imports: [],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './observable.component.html',
   styleUrl: './observable.component.css'
 })
