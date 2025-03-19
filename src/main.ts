@@ -7,6 +7,7 @@ import { PremiumService } from './services/premium.service';
 import { CommonModule } from '@angular/common';
 import { PromiseComponent } from './promise/promise.component';
 import { FromEventComponent } from './observable/from-event/from-event.component';
+import { IntervalComponent } from './observable/interval/interval.component';
 
 @Component({
   selector: 'app-root',
@@ -71,6 +72,10 @@ bootstrapApplication(App,{
           {
             path: 'fromEvent',
             component: FromEventComponent
+          },
+          {
+            path: 'interval',
+            component: IntervalComponent
           }
         ]
       },
