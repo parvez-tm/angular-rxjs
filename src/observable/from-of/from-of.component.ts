@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { from,of } from 'rxjs';
+import { from,of, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-from-of',
@@ -10,7 +10,10 @@ import { from,of } from 'rxjs';
 })
 export class FromOfComponent {
 
-  data = of('PTM','Anand') 
+  // data = of('PTM','Anand') 
+  data = of('PTM', 'Anand').pipe(
+    toArray() // Collects emitted values into an array
+  );
   data2 = of(['PTM','Anand']) 
 
   constructor(){

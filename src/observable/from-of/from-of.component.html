@@ -6,7 +6,9 @@
 
 {{data | async}}
 
-<p>In observable you have to use data subscribed immediately otherwise you will not be able to get it.</p>
+{{data | async | json}}
+
+<!-- <p>In observable you have to use data subscribed immediately otherwise you will not be able to get it.</p> -->
 @for(d of data2 | async; track d){
     <p>{{d}}</p>
 }
