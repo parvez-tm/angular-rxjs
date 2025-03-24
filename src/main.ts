@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { PromiseComponent } from './promise/promise.component';
 import { FromEventComponent } from './observable/from-event/from-event.component';
 import { IntervalComponent } from './observable/interval/interval.component';
+import { FromOfComponent } from './observable/from-of/from-of.component';
 
 @Component({
   selector: 'app-root',
@@ -76,6 +77,10 @@ bootstrapApplication(App,{
           {
             path: 'interval',
             component: IntervalComponent
+          },
+          {
+            path: 'from-of',
+            component: FromOfComponent
           }
         ]
       },

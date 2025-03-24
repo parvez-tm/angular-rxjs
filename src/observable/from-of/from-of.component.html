@@ -1,0 +1,14 @@
+<p>Observable stream usign of</p>
+
+@for(d of data | async; track d){
+    <p>{{d}}</p>
+}
+
+{{data | async}}
+
+<p>In observable you have to use data subscribed immediately otherwise you will not be able to get it.</p>
+@for(d of data2 | async; track d){
+    <p>{{d}}</p>
+}
+
+<p>Observable stream usign from(in Array only)</p>
