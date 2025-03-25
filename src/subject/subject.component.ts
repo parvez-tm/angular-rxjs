@@ -11,6 +11,8 @@ import { Subject } from 'rxjs';
 export class SubjectComponent {
 
   constructor(private premium: PremiumService) {
+    console.log("hh");
+    
     // this.premium.exclusive.next(true)
     this.premium.exclusive.set(true)
     // console.log(this.premium.exclusive(),"asdas");
@@ -21,11 +23,30 @@ export class SubjectComponent {
 
     // Another Example
     const subject = new Subject<number>();
-    subject.subscribe(value => console.log('Subscriber 1:', value));
+    // subject.subscribe({
+    //   next: value => console.log('Subscriber 1:', value),
+    //   error: err => console.log('Error:', err),
+    // });
     subject.subscribe(value => console.log('Subscriber 2:', value));
 
-    subject.next(1);
-    subject.next(2);
+    for (let i = 0; i < 10; i++) {
+      setTimeout(()=>{
+        subject.next(i)
+      },i*1000)
+    }
+
+    // for (let i = 0; i < 10; i++) {
+    //   setTimeout(() => {
+    //     subject.next(i);
+    
+    //     if (i === 9) {
+    //       subject.error('Closes');
+    //     }
+    //   }, i * 1000); // Each emission happens after i * 1000ms
+    // }
+    // subject.next(1);
+    // subject.next(2);
+    subject.error('Closes')
   }
 
   ngOnDestroy() {
