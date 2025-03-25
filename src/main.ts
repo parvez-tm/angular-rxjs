@@ -34,10 +34,13 @@ import { FromOfComponent } from './observable/from-of/from-of.component';
 
       </ul>
     </div>
-    <span class="badge text-bg-warning" *ngIf='this.premium.exclusive()'>Premium</span>
+    </div>
+    </nav>
+
+    <div style="position:fixed; bottom: 0; right: 0" class="m-2">
+    <span class="badge text-bg-warning p-2" *ngIf='this.premium.exclusive()'>Premium</span>
     <!--<span class="badge text-bg-warning" *ngIf='exclusive'>Premium</span>-->
-  </div>
-</nav>
+    </div>
 
 <router-outlet></router-outlet>
   `,

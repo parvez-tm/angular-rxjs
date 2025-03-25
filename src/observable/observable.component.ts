@@ -10,28 +10,31 @@ import { Observable } from 'rxjs';
 })
 export class ObservableComponent {
 
-  data:number[] = []
-  count = 1
-  newObservable:any
-  constructor(){}
+  data: number[] = []
+  count = 0
+  newObservable: any
+  constructor() { }
 
 
-  ngOnInit(){
-    this.newObservable = new Observable((obs)=> {
-      setInterval(()=> {
-        this.count++
-        this.data.push(this.count);
-        // obs.next(this.data)
-        obs.error('Hat')
-      }, 1000)
+  ngOnInit() {
+    this.newObservable = new Observable((observer) => {
+      setInterval(() => {
+        this.count++;
+        // this.data.push(this.count);
+        observer.next(this.count);
+        if (this.count == 5) {
+          observer.complete();
+        };
+        // observer.error('Hat')
+      }, 2000)
     })
   }
 
-  getData(){
-    
-    this.newObservable.subscribe((res:number)=>{
+  getData() {
+
+    this.newObservable.subscribe((res: number) => {
       console.log(res);
-    },(err:any)=>{
+    }, (err: any) => {
       console.log(err);
     })
   }
