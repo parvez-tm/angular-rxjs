@@ -9,6 +9,7 @@ import { PromiseComponent } from './promise/promise.component';
 import { FromEventComponent } from './observable/from-event/from-event.component';
 import { IntervalComponent } from './observable/interval/interval.component';
 import { FromOfComponent } from './observable/from-of/from-of.component';
+import { ToArrayComponent } from './observable/to-array/to-array.component';
 
 @Component({
   selector: 'app-root',
@@ -84,7 +85,12 @@ bootstrapApplication(App,{
           {
             path: 'from-of',
             component: FromOfComponent
-          }
+          },
+          {
+            path: 'to-array',
+            component: ToArrayComponent
+          },
+
         ]
       },
       {
