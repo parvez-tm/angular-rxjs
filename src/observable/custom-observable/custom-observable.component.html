@@ -1,0 +1,29 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 ">
+    
+            <div class="card  p-3">
+            <strong>Custom Observable with static data</strong>
+            <hr/>
+               <ul [ngClass]="taskCompleted == 'complete'?'complete':taskCompleted == 'error'?'error' : ''">
+                @for(i of array(); track i){
+                    <li>{{i}}</li>
+                }
+               </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 ">
+            
+            <div class="card p-3">
+                <strong>Custom Interval Observable</strong>
+                <hr/>
+                   <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                   </ul>
+                </div>
+        </div>
+    </div>
+</div>
