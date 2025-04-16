@@ -10,12 +10,51 @@ import { Subject } from 'rxjs';
 })
 export class SubjectComponent {
 
+  data = new Subject()
+  listData:any = []
+
   constructor(private premium: PremiumService) {
-    console.log("hh");
-    
     // this.premium.exclusive.next(true)
     this.premium.exclusive.set(true)
     // console.log(this.premium.exclusive(),"asdas");
+
+
+
+  }
+  subscribeData(){
+    this.data.subscribe(data => {
+      this.listData.push(data)
+      // Data emited and and not subscribed will lost in it 
+      console.log(this.listData);
+    })
+    
+  }
+
+  emitData(){
+
+    setTimeout(()=>{
+      this.data.next(1)
+      console.log(1);
+      
+    },1000)
+    setTimeout(()=>{
+      this.data.next(2)
+      console.log(2);
+    },2000)
+    setTimeout(()=>{
+      this.data.next(3)
+      console.log(3);
+    },3000)
+    setTimeout(()=>{
+      this.data.next(4)
+      console.log(4);
+    },4000)
+
+    setTimeout(()=>{
+      this.data.next(5)
+      console.log(5);
+    },5000)
+
 
   }
 

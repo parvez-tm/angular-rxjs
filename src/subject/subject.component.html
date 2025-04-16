@@ -19,3 +19,10 @@
     </li>
 
 </ul>
+
+<button (click)="emitData()">Emit Data</button>
+<button (click)="subscribeData()">Subscribe</button>
+
+@for(d of listData; track d){
+    {{d}}
+}
