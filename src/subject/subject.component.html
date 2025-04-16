@@ -22,7 +22,12 @@
 
 <button (click)="emitData()">Emit Data</button>
 <button (click)="subscribeData()">Subscribe</button>
+<button (click)="subscribeReply()">Reply Subscribe</button>
 
-@for(d of listData; track d){
+<!-- @for(d of listData; track d){
+    {{d}}
+} -->
+
+@for(d of replyList; track d){
     {{d}}
 }

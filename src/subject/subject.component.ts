@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PremiumService } from '../services/premium.service';
-import { Subject } from 'rxjs';
+import { ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-subject',
@@ -11,7 +11,9 @@ import { Subject } from 'rxjs';
 export class SubjectComponent {
 
   data = new Subject()
+  replyData = new ReplaySubject()
   listData:any = []
+  replyList:any = []
 
   constructor(private premium: PremiumService) {
     // this.premium.exclusive.next(true)
@@ -24,8 +26,17 @@ export class SubjectComponent {
   subscribeData(){
     this.data.subscribe(data => {
       this.listData.push(data)
-      // Data emited and and not subscribed will lost in it 
+      // Data emited and not subscribed will lost in it 
       console.log(this.listData);
+    })
+    
+  }
+
+  subscribeReply(){
+    this.replyData.subscribe(data => {
+      this.replyList.push(data)
+      // Data emited and  not subscribed will not lost in it 
+      console.log(this.replyList);
     })
     
   }
@@ -34,24 +45,29 @@ export class SubjectComponent {
 
     setTimeout(()=>{
       this.data.next(1)
+      this.replyData.next(1)
       console.log(1);
       
     },1000)
     setTimeout(()=>{
       this.data.next(2)
+      this.replyData.next(2)
       console.log(2);
     },2000)
     setTimeout(()=>{
       this.data.next(3)
+      this.replyData.next(3)
       console.log(3);
     },3000)
     setTimeout(()=>{
       this.data.next(4)
+      this.replyData.next(4)
       console.log(4);
     },4000)
 
     setTimeout(()=>{
       this.data.next(5)
+      this.replyData.next(5)
       console.log(5);
     },5000)
 
