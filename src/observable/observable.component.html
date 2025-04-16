@@ -1,6 +1,11 @@
-<button (click)="getData()" class="btn btn-warning m-4">Get Data</button>
+<h3>Cold Observable</h3>
+<p>A cold observable creates a new execution or stream of data every time a new subscriber subscribes.</p>
 
-<br />
+<h3>Hot Observables</h3>
+<p>A hot observable, on the other hand, does not start emitting values when a subscriber subscribes. Instead, it shares the same stream of data with all subscribers. This means that all subscribers are listening to the same sequence of data.</p>
+<br>
+<button (click)="getData()" class="btn btn-warning m-4">Get Data</button>
+<br>
 
 <button routerLink="fromEvent" class="btn box">fromEvent</button>
 <button routerLink="interval" class="btn box">interval</button>

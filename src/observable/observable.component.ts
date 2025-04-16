@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
@@ -13,7 +13,39 @@ export class ObservableComponent {
   data: number[] = []
   count = 0
   newObservable: any
-  constructor() { }
+  constructor() {
+
+    // Cold Observable 
+    const coldObservable = new Observable(subscriber => {
+      console.log('Observable starts');
+      subscriber.next('Hello');
+      subscriber.next('World');
+      subscriber.complete();
+    });
+
+    // Subscriber 1
+    coldObservable.subscribe(value => console.log('Subscriber 1:', value));
+
+    // Subscriber 2
+    coldObservable.subscribe(value => console.log('Subscriber 2:', value));
+
+    // Hot Observable 
+    const hotObservable = new Subject();
+
+    // Subscriber 1
+    hotObservable.subscribe(value => console.log('Subscriber 1:', value));
+
+    // Emit data from the "source"
+    hotObservable.next('Hello');
+
+    // Subscriber 2 (subscribing late)
+    hotObservable.subscribe(value => console.log('Subscriber 2:', value));
+
+    // Emit more data
+    hotObservable.next('World');
+
+
+  }
 
 
   ngOnInit() {
