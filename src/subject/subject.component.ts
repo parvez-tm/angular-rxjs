@@ -43,35 +43,14 @@ export class SubjectComponent {
 
   emitData(){
 
-    setTimeout(()=>{
-      this.data.next(1)
-      this.replyData.next(1)
-      console.log(1);
-      
-    },1000)
-    setTimeout(()=>{
-      this.data.next(2)
-      this.replyData.next(2)
-      console.log(2);
-    },2000)
-    setTimeout(()=>{
-      this.data.next(3)
-      this.replyData.next(3)
-      console.log(3);
-    },3000)
-    setTimeout(()=>{
-      this.data.next(4)
-      this.replyData.next(4)
-      console.log(4);
-    },4000)
-
-    setTimeout(()=>{
-      this.data.next(5)
-      this.replyData.next(5)
-      console.log(5);
-    },5000)
-
-
+    for (let i = 1; i <= 5; i++) {      
+      setTimeout(()=>{
+        this.data.next(i)
+        this.replyData.next(i)
+        console.log(i);
+        
+      },i*1000)
+    }
   }
 
   ngOnInit() {
