@@ -11,6 +11,7 @@ import { IntervalComponent } from './observable/interval/interval.component';
 import { FromOfComponent } from './observable/from-of/from-of.component';
 import { ToArrayComponent } from './observable/to-array/to-array.component';
 import { CustomObservableComponent } from './observable/custom-observable/custom-observable.component';
+import { PluckComponent } from './observable/pluck/pluck.component';
 
 @Component({
   selector: 'app-root',
@@ -95,6 +96,10 @@ bootstrapApplication(App,{
             path: 'custom-observable',
             component: CustomObservableComponent
           },
+          {
+            path: 'pluck',
+            component: PluckComponent
+          }
 
         ]
       },
