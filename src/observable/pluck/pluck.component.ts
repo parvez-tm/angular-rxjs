@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { from, map } from 'rxjs';
+import { from, map, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-pluck',
@@ -15,7 +15,8 @@ export class PluckComponent {
   ])
   constructor(){
     this.users.pipe(
-      map(data => data.name)
+      map(data => data.name),
+      toArray()
     ).subscribe({
       next: (data) => {
         console.log(data)
