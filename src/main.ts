@@ -12,6 +12,8 @@ import { FromOfComponent } from './observable/from-of/from-of.component';
 import { ToArrayComponent } from './observable/to-array/to-array.component';
 import { CustomObservableComponent } from './observable/custom-observable/custom-observable.component';
 import { PluckComponent } from './observable/pluck/pluck.component';
+import { ConcatMapComponent } from './observable/concat-map/concat-map.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -99,6 +101,10 @@ bootstrapApplication(App,{
           {
             path: 'pluck',
             component: PluckComponent
+          },
+          {
+            path: 'concat-map',
+            component: ConcatMapComponent
           }
 
         ]
@@ -107,6 +113,7 @@ bootstrapApplication(App,{
         path: 'promise',
         component: PromiseComponent
       },
-    ])
+    ]),
+    provideHttpClient()
   ]
 });
